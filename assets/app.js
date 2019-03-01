@@ -1,12 +1,40 @@
-$(document).on("load", function(){
+$(document).ready( function(){
     // Declare any necessary global variables
+    var topics = ["luke skywalker", "han solo", "darth vader", "darth maul", "princess leia", 
+                "kylo ren", "chewbacca", "r2-d2", "obi-wan", "boba fett", "mace windu", "anakin"];
+    
 
     // Function loadTopics to convert array of topics into buttons on the page
-        // Variable to hold value of text from the array (also user input later)
-        // Buttons should be added to divs with col-lg-1 col-md-2 and col-sm-3
-        // Assign a class of .topic-btn
-            // Divs appended to #button-container
+    function loadTopics() {
+        $("#button-container").empty();
+
+        for(var i = 0; i < topics.length; i++) {
+            var buttonText = topics[i];
+            // Create a div to control flow and contain button
+            var buttonWrap = $("<div>").attr("class", "col-lg-1 col-md-2 col-sm-3 topic-btn");
+            // Create a button. Add text from array and classes for styling and reference
+            var button = $("<button>").text(buttonText);
+            button.attr("class", "btn btn-primary");
+            // Append the button to the div, then the div to the container on page
+            $(buttonWrap).append(button);
+            $("#button-container").append(buttonWrap);
+        }
+    }
+
+    // Call the buttons to the page the first time
+    loadTopics();
     
+    $("#create-btn").on("click", function(){
+
+        event.preventDefault();
+        var userInput = $("#user-input").val().trim();
+        
+        if(userInput != "") {
+            topics.push(userInput);
+            loadTopics();
+        }
+
+    })
     // Function to addButton based off user input into the #user-input field
         // Converts value of input text into button text and value
         // Button should be identical div and class to loadTopics function above
