@@ -6,6 +6,10 @@ h1 {
     line-height: 10%;
 }
 
+.gif-container {
+    margin: auto;
+}
+
 .subtitle {
     margin-top: 25px;
 }
@@ -14,10 +18,16 @@ h1 {
     display: inline;
 }
 
-.gif-image {
+.gif-box {
     display: inline;
     float: left;
     align-content: space-between;
+}
+
+.rating {
+    display: inline-block;
+    clear: both;
+    margin-right: 1em;
 }
 
 .download-btn {

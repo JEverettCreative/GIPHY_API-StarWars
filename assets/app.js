@@ -54,33 +54,50 @@ $(document).ready( function(){
            var results = response.data;
 
            for (var i = 0; i < results.length; i++) {
-                var gifDiv = $("<div>").attr("class", "col-sm-12 col-lg-4 gif-image");
+                var gifDiv = $("<div>").attr("class", "col-sm-12 col-lg-4 gif-box justify-content-center");
+
+                var ratingRow = $("<div>").attr("class", "row justify-content-center text-center");
             
                 var rating = $("<p>").text(results[i].rating);
+                rating.attr("class", "rating");
 
                 var downloadBtn = $("<a>").text("Download GIF!");
                 downloadBtn.attr("class", "download-btn btn-warning");
                 downloadBtn.attr("href", results[i].images.fixed_height.url);
                 downloadBtn.attr("download", searchTerm + "-" + [i]);
 
-                var gifImage = $("<img>");
-                gifImage.attr("src", results[i].images.fixed_height.url);
+                var gifImage = $("<img>").attr("data-still", results[i].images.fixed_height_still.url);
+                gifImage.attr("data-animate", results[i].images.fixed_height.url);
+                gifImage.attr("data-state", "still");
+                gifImage.attr("class", "gif");
+                gifImage.attr("src", results[i].images.fixed_height_still.url);
+
+                $(ratingRow).append(rating);
+                ratingRow.append(downloadBtn);
 
                 $(gifDiv).append(gifImage);
-                $(gifDiv).append(rating);
-                $(gifDiv).append(downloadBtn);
+                gifDiv.append(ratingRow);
             // Prepend the gif divs in the container
                 $("#gif-container").prepend(gifDiv);
 
            }
        })
     })
+
+    $(document).on("click", ".gif", function(){
+        var state = $(this).attr("data-state");
+
+        if (state === "still") {
+            $(this).attr("src", $(this).attr("data-animate"));
+            $(this).attr("data-state", "animate");
+        } else {
+            $(this).attr("src", $(this).attr("data-still"));
+            $(this).attr("data-state", "still");
+        }
+    })
                 // Rating, fixed_height_still (once MVP, add download link)
 
-    // Create an on "click" event for the gifs to check if the data-state is still or animate
-        // If still, animate, if animate, then change to still
-
-    // Notes: Clicking another button should prepend without deleting previous gifs
+    
 
 
 
