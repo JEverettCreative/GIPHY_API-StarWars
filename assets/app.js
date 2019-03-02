@@ -50,6 +50,23 @@ $(document).ready( function(){
            method: "GET"
        }).then(function(response){
            console.log(response);
+           // Create a for loop to iterate through the 10 results
+           var results = response.data;
+
+           for (var i = 0; i < results.length; i++) {
+                var gifDiv = $("<div>").attr("class", "col-sm-12 col gif-image");
+            
+                var rating = $("<p>").text(results[i].rating);
+
+                var gifImage = $("<img>");
+                gifImage.attr("src", results[i].images.fixed_height.url);
+
+                $(gifDiv).append(gifImage);
+                $(gifDiv).append(rating);
+            // Prepend the gif divs in the container
+                $("#gif-container").prepend(gifDiv);
+
+           }
        })
     })
         // Contains the queryURL for GIPHY plus var that contains the value of this button
