@@ -23,7 +23,9 @@ $(document).ready( function(){
 
     // Call the buttons to the page the first time
     loadTopics();
-    
+
+    // Function to addButton based off user input into the #user-input field
+        // Call the loadTopics function again to ensure btn is of the same class
     $("#create-btn").on("click", function(){
 
         event.preventDefault();
@@ -35,12 +37,21 @@ $(document).ready( function(){
         }
 
     })
-    // Function to addButton based off user input into the #user-input field
-        // Converts value of input text into button text and value
-        // Button should be identical div and class to loadTopics function above
-            // Appended to #button-container
 
     // Function for on "click" event of the .topic-btn
+
+    $(".topic-btn").on("click", function(){
+        var searchTerm = $(this).text();
+        
+        var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=I8gqUfs7wgNfDDZcbDE2PcijfYStSblZ&limit=10";
+
+       $.ajax({
+           url: queryURL,
+           method: "GET"
+       }).then(function(response){
+           console.log(response);
+       })
+    })
         // Contains the queryURL for GIPHY plus var that contains the value of this button
             // Adds API key and limit=10
         // AJAX GET method call 
