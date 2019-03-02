@@ -16,4 +16,6 @@ h1 {
 
 .gif-image {
     display: inline;
+    float: left;
+    align-content: space-between;
 }

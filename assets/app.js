@@ -12,6 +12,7 @@ $(document).ready( function(){
             var buttonText = topics[i];
             // Create a div to control flow and contain button
             var buttonWrap = $("<div>").attr("class", "col-lg-1 col-md-2 col-sm-3 topic-btn");
+            buttonWrap.attr("value", buttonText);
             // Create a button. Add text from array and classes for styling and reference
             var button = $("<button>").text(buttonText);
             button.attr("class", "btn btn-primary");
@@ -40,8 +41,8 @@ $(document).ready( function(){
 
     // Function for on "click" event of the .topic-btn
 
-    $(".topic-btn").on("click", function(){
-        var searchTerm = $(this).text();
+    $(document).on("click", ".topic-btn", function(){
+        var searchTerm = $(this).attr("value");
         
         var queryURL = "https://api.giphy.com/v1/gifs/search?q=" + searchTerm + "&api_key=I8gqUfs7wgNfDDZcbDE2PcijfYStSblZ&limit=10";
 
@@ -49,12 +50,13 @@ $(document).ready( function(){
            url: queryURL,
            method: "GET"
        }).then(function(response){
+           console.log(queryURL);
            console.log(response);
            // Create a for loop to iterate through the 10 results
            var results = response.data;
 
            for (var i = 0; i < results.length; i++) {
-                var gifDiv = $("<div>").attr("class", "col-sm-12 col gif-image");
+                var gifDiv = $("<div>").attr("class", "col-sm-12 col-lg-4 gif-image");
             
                 var rating = $("<p>").text(results[i].rating);
 
