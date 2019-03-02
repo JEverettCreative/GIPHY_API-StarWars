@@ -19,3 +19,7 @@ h1 {
     float: left;
     align-content: space-between;
 }
+
+.download-btn {
+    display: inline;
+}

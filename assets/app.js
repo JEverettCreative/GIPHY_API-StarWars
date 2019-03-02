@@ -39,8 +39,7 @@ $(document).ready( function(){
 
     })
 
-    // Function for on "click" event of the .topic-btn
-
+    // Function for on "click" event of the .topic-btn - AJAX call
     $(document).on("click", ".topic-btn", function(){
         var searchTerm = $(this).attr("value");
         
@@ -50,7 +49,6 @@ $(document).ready( function(){
            url: queryURL,
            method: "GET"
        }).then(function(response){
-           console.log(queryURL);
            console.log(response);
            // Create a for loop to iterate through the 10 results
            var results = response.data;
@@ -60,24 +58,24 @@ $(document).ready( function(){
             
                 var rating = $("<p>").text(results[i].rating);
 
+                var downloadBtn = $("<a>").text("Download GIF!");
+                downloadBtn.attr("class", "download-btn btn-warning");
+                downloadBtn.attr("href", results[i].images.fixed_height.url);
+                downloadBtn.attr("download", searchTerm + "-" + [i]);
+
                 var gifImage = $("<img>");
                 gifImage.attr("src", results[i].images.fixed_height.url);
 
                 $(gifDiv).append(gifImage);
                 $(gifDiv).append(rating);
+                $(gifDiv).append(downloadBtn);
             // Prepend the gif divs in the container
                 $("#gif-container").prepend(gifDiv);
 
            }
        })
     })
-        // Contains the queryURL for GIPHY plus var that contains the value of this button
-            // Adds API key and limit=10
-        // AJAX GET method call 
-            // Filter through the resulting object and pull the following:
                 // Rating, fixed_height_still (once MVP, add download link)
-            // Create a for loop to go through these, get that info, and create a div, image, and p
-            // tag to then prepend to the #gif-container
 
     // Create an on "click" event for the gifs to check if the data-state is still or animate
         // If still, animate, if animate, then change to still
