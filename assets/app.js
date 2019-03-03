@@ -64,7 +64,9 @@ $(document).ready( function(){
                 var downloadBtn = $("<a>").text("Download GIF!");
                 downloadBtn.attr("class", "download-btn btn-warning");
                 downloadBtn.attr("href", results[i].images.fixed_height.url);
-                downloadBtn.attr("download", searchTerm + "-" + [i]);
+                downloadBtn.attr("download");
+                downloadBtn.attr("target", "_blank");
+                // downloadBtn.attr("download", searchTerm + "-" + [i]);
 
                 var gifImage = $("<img>").attr("data-still", results[i].images.fixed_height_still.url);
                 gifImage.attr("data-animate", results[i].images.fixed_height.url);
@@ -86,7 +88,7 @@ $(document).ready( function(){
 
     $(document).on("click", ".gif", function(){
         var state = $(this).attr("data-state");
-
+        
         if (state === "still") {
             $(this).attr("src", $(this).attr("data-animate"));
             $(this).attr("data-state", "animate");
@@ -97,12 +99,13 @@ $(document).ready( function(){
     })
                 // Rating, fixed_height_still (once MVP, add download link)
 
-    
+    $(document).on("click", ".download-btn", function(){
+        var downloadURL = $(this).attr("href");
+        console.log("You clicked an anchor");
+        console.log(downloadURL);
 
-
-
-
-
+        window.location = downloadURL;
+    })
 
 
 
