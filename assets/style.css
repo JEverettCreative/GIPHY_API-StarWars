@@ -14,8 +14,22 @@ h1 {
     margin-top: 25px;
 }
 
+/* Class to override col's 100% width */
+.drop-width {
+    width: auto;
+}
+
+.form-inline {
+    flex-flow: row;
+}
+
 .topic-btn {
-    display: inline;
+    display: inline-block;
+    margin-top: 2em;
+    align-content: space-around;
+    justify-content: center;
+    width: auto;
+    padding-right: 0px;
 }
 
 .gif-box {
@@ -32,4 +46,17 @@ h1 {
 
 .download-btn {
     display: inline;
+}
+
+@media screen and (max-width: 992px) {
+    .topic-btn {
+        margin-inline-start: 0.5em;
+    }
+}
+
+/* Mobile view style-specific */
+@media screen and (max-width: 576px) {
+    .topic-btn {
+        margin-inline-start: 0;
+    }
 }

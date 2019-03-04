@@ -11,7 +11,7 @@ $(document).ready( function(){
         for(var i = 0; i < topics.length; i++) {
             var buttonText = topics[i];
             // Create a div to control flow and contain button
-            var buttonWrap = $("<div>").attr("class", "col-lg-1 col-md-2 col-sm-3 topic-btn");
+            var buttonWrap = $("<div>").attr("class", "col-md-2 col-sm-3 topic-btn");
             buttonWrap.attr("value", buttonText);
             // Create a button. Add text from array and classes for styling and reference
             var button = $("<button>").text(buttonText);
