@@ -1,5 +1,17 @@
+body {
+    background-image: url("images/vader.jpg");
+}
+
 h1 {
     font-size: 4em;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: bolder;
+    color: #000;
+    text-shadow: 
+    -1px -1px 0 #fff,
+    1px -1px 0 #fff,
+    -1px 1px 0 #fff,
+    1px 1px 0 #fff;
 }
 
 .star-wars-font {
@@ -12,6 +24,13 @@ h1 {
 
 .subtitle {
     margin-top: 25px;
+    font-weight: bold;
+    color: #fff;
+}
+
+.label-text {
+    font-weight: bold;
+    color: #fff;
 }
 
 /* Class to override col's 100% width */
@@ -36,12 +55,15 @@ h1 {
     display: inline;
     float: left;
     align-content: space-between;
+    margin-top: 1em;
 }
 
 .rating {
     display: inline-block;
     clear: both;
     margin-right: 1em;
+    font-weight: bold;
+    color: #fff;
 }
 
 .download-btn {

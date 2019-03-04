@@ -2,7 +2,7 @@ $(document).ready( function(){
     // Declare any necessary global variables
     var topics = ["luke skywalker", "han solo", "darth vader", "darth maul", "princess leia", 
                 "kylo ren", "chewbacca", "r2-d2", "obi-wan", "boba fett", "mace windu", "anakin"];
-    
+    var saber = document.getElementById("saber");
 
     // Function loadTopics to convert array of topics into buttons on the page
     function loadTopics() {
@@ -25,12 +25,18 @@ $(document).ready( function(){
     // Call the buttons to the page the first time
     loadTopics();
 
+    // Create a function to play light saber sound
+    saberPlay = function() {
+        saber.play();
+    }
+
     // Function to addButton based off user input into the #user-input field
         // Call the loadTopics function again to ensure btn is of the same class
     $("#create-btn").on("click", function(){
 
         event.preventDefault();
         var userInput = $("#user-input").val().trim();
+        saberPlay();
         
         if(userInput != "") {
             topics.push(userInput);
@@ -58,14 +64,14 @@ $(document).ready( function(){
 
                 var ratingRow = $("<div>").attr("class", "row justify-content-center text-center");
             
-                var rating = $("<p>").text(results[i].rating);
+                var rating = $("<p>").text("Rating: " + results[i].rating.toUpperCase());
                 rating.attr("class", "rating");
 
-                var downloadBtn = $("<a>").text("Download GIF!");
-                downloadBtn.attr("class", "download-btn btn-warning");
-                downloadBtn.attr("href", results[i].images.fixed_height.url);
-                downloadBtn.attr("download");
-                downloadBtn.attr("target", "_blank");
+                // var downloadBtn = $("<a>").text("Download GIF!");
+                // downloadBtn.attr("class", "download-btn btn-warning");
+                // downloadBtn.attr("href", results[i].images.fixed_height.url);
+                // downloadBtn.attr("download");
+                // downloadBtn.attr("target", "_blank");
                 // downloadBtn.attr("download", searchTerm + "-" + [i]);
 
                 var gifImage = $("<img>").attr("data-still", results[i].images.fixed_height_still.url);
@@ -75,7 +81,7 @@ $(document).ready( function(){
                 gifImage.attr("src", results[i].images.fixed_height_still.url);
 
                 $(ratingRow).append(rating);
-                ratingRow.append(downloadBtn);
+                // ratingRow.append(downloadBtn);
 
                 $(gifDiv).append(gifImage);
                 gifDiv.append(ratingRow);
