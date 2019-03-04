@@ -1,7 +1,7 @@
 $(document).ready( function(){
     // Declare any necessary global variables
-    var topics = ["luke skywalker", "han solo", "darth vader", "darth maul", "princess leia", 
-                "kylo ren", "chewbacca", "r2-d2", "obi-wan", "boba fett", "mace windu", "anakin"];
+    var topics = ["Luke Skywalker", "Han Solo", "Darth Vader", "Darth Maul", "Princess Leia", 
+                "Kylo Ren", "Chewbacca", "R2-D2", "Obi-Wan", "Boba Fett", "Mace Windu", "Anakin"];
     var saber = document.getElementById("saber");
 
     // Function loadTopics to convert array of topics into buttons on the page
