@@ -10,6 +10,9 @@ Star Wars-themed app that utilizes the Giphy API to search for and pull gifs rel
 ## About
 * This app pulls an array of Star Wars topics from the base code to populate buttons on the screen. If the user clicks on a button, an Ajax request is sent using the Giphy API to pull 10 gifs to the browser, using the button's value property as the search query. Users can also create their own functional button with a search term, which is added to the list.
 
+## Deployed Project
+https://jeverettcreative.github.io/GIPHY_API-StarWars/
+
 ## How-to use this code
 * Simply pull the files and open them in your web browser of choice to view.
 
