@@ -16,6 +16,13 @@ https://jeverettcreative.github.io/GIPHY_API-StarWars/
 ## How-to use this code
 * Simply pull the files and open them in your web browser of choice to view.
 
+## Screenshots
+* Create a new button using the text-field, if desired
+![CreateButton](https://user-images.githubusercontent.com/45632983/67114249-225c1700-f1a1-11e9-919e-27281a5a513f.png)
+
+* Click a button to pull images from GIPHY related to it's tag. GIFs will arrive still. Clicking a GIF will activate it.
+![GIFsPulled](https://user-images.githubusercontent.com/45632983/67114408-7535ce80-f1a1-11e9-9854-146038b4d508.png)
+
 ## Contributing Guidelines
 All contributions and suggestions are welcome!
 For direct contributions, please fork the repository and file a pull request. 
